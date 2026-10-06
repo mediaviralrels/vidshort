@@ -3,11 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
 <title>VIDEY.CO</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+  rel="stylesheet"
+>
 
 <style>
 :root{
@@ -19,7 +24,9 @@
   --card:#f8fafc;
 }
 
-*,*::before,*::after{
+*,
+*::before,
+*::after{
   box-sizing:border-box;
 }
 
@@ -27,54 +34,84 @@ html{
   -webkit-text-size-adjust:100%;
 }
 
-html,body{
+html,
+body{
   width:100%;
   min-height:100%;
   margin:0;
 }
 
 body{
-  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Arial,
+    sans-serif;
+
   color:var(--text);
   background:var(--bg);
   line-height:1.45;
   overflow-x:hidden;
 }
 
+
+/* ==============================
+   HEADER
+============================== */
+
 .appbar{
   position:sticky;
   top:0;
   z-index:20;
+
   background:rgba(255,255,255,.85);
-  backdrop-filter:saturate(180%) blur(8px);
+
+  backdrop-filter:
+    saturate(180%)
+    blur(8px);
+
   border-bottom:1px solid var(--line);
 }
 
 .bar-inner{
   width:100%;
   max-width:1200px;
+
   margin:auto;
+
   display:flex;
   align-items:center;
+
   gap:12px;
+
   padding:10px 16px;
 }
 
 .brand{
   display:flex;
   align-items:center;
+
   gap:8px;
+
   font-weight:800;
 }
 
 .logo{
   display:grid;
   place-items:center;
+
   width:28px;
   height:28px;
+
   border-radius:6px;
+
   background:#111827;
   color:#fff;
+
   font-size:14px;
 }
 
@@ -84,215 +121,369 @@ body{
 
 .btn{
   border:0;
+
   padding:10px 14px;
+
   border-radius:12px;
+
   background:var(--btn);
   color:#fff;
+
   font-weight:600;
+
   cursor:pointer;
 }
+
+
+/* ==============================
+   BANNER
+============================== */
 
 .banner{
   width:100%;
   max-width:1200px;
+
   margin:10px auto 0;
+
   padding:8px 16px;
+
   color:var(--muted);
+
   font-size:14px;
 }
+
+
+/* ==============================
+   MAIN
+============================== */
 
 .wrap{
   width:100%;
   max-width:1200px;
+
   margin:6px auto 40px;
+
   padding:0 16px;
 }
 
 .player-shell{
   display:grid;
   place-items:center;
+
   margin-top:20px;
 }
 
+
+/* ==============================
+   VIDEO PLAYER
+============================== */
+
 .phone{
   position:relative;
+
   width:clamp(240px,92vw,420px);
-  aspect-ratio:9/16;
+
+  aspect-ratio:9 / 16;
+
   border-radius:22px;
+
   overflow:hidden;
+
   background:#000;
+
   box-shadow:
     0 10px 30px rgba(2,6,23,.15),
     0 3px 10px rgba(2,6,23,.08);
+
+  /*
+    Seluruh area player bisa menerima
+    tap/klik.
+  */
+
+  touch-action:manipulation;
+
+  cursor:pointer;
 }
 
+
 /*
-  Area video menjadi area klik iklan.
+  Video tetap memenuhi player.
 */
+
 .phone video{
   width:100%;
   height:100%;
+
+  display:block;
+
   object-fit:cover;
+
   cursor:pointer;
 }
+
+
+/* ==============================
+   DURASI
+============================== */
 
 .meta{
   width:100%;
   max-width:760px;
+
   margin:12px auto 0;
+
   padding:0 6px;
+
   text-align:center;
+
   color:var(--muted);
+
   font-size:13px;
 }
 
-/* BUTTON VIDEO */
+
+/* ==============================
+   BUTTON VIDEO
+============================== */
 
 .dl-section{
   width:100%;
   max-width:420px;
+
   margin:12px auto 0;
+
   padding:0 16px;
+
   text-align:center;
 }
 
 .dl-title{
   color:var(--muted);
+
   font-size:13px;
+
   margin:0 0 10px;
 }
 
 .dl-wrap{
   display:flex;
+
   gap:12px;
+
   justify-content:center;
+
   flex-wrap:wrap;
 }
 
 .btn-dl{
   flex:1;
+
   min-width:150px;
+
   display:flex;
+
   align-items:center;
+
   justify-content:center;
+
   text-decoration:none;
+
   text-align:center;
+
   padding:16px 20px;
+
   border-radius:16px;
+
   color:#fff;
+
   font-weight:800;
+
   font-size:16px;
+
   cursor:pointer;
 }
 
 .btn-dl-1{
-  background:linear-gradient(135deg,#FF4D4D 0%,#FF7A00 100%);
-  box-shadow:0 6px 18px rgba(255,77,77,.4);
+  background:
+    linear-gradient(
+      135deg,
+      #FF4D4D 0%,
+      #FF7A00 100%
+    );
+
+  box-shadow:
+    0 6px 18px rgba(255,77,77,.4);
 }
 
 .btn-dl-2{
-  background:linear-gradient(135deg,#3b82f6 0%,#0ea5e9 100%);
-  box-shadow:0 6px 18px rgba(59,130,246,.4);
+  background:
+    linear-gradient(
+      135deg,
+      #3b82f6 0%,
+      #0ea5e9 100%
+    );
+
+  box-shadow:
+    0 6px 18px rgba(59,130,246,.4);
 }
+
+
+/* ==============================
+   AD SLOT
+============================== */
 
 .ad-slot{
   width:100%;
   max-width:760px;
+
   margin:28px auto 0;
+
   background:var(--card);
+
   border:1px dashed var(--line);
+
   border-radius:16px;
+
   padding:16px;
+
   text-align:center;
+
   color:var(--muted);
 }
 
+
+/* ==============================
+   DESKTOP
+============================== */
+
 @media (min-width:1024px){
+
   .wrap{
     display:grid;
-    grid-template-columns:minmax(0,1fr) minmax(0,480px) minmax(0,1fr);
+
+    grid-template-columns:
+      minmax(0,1fr)
+      minmax(0,480px)
+      minmax(0,1fr);
+
     align-items:start;
   }
 
   .player-shell{
     grid-column:2;
   }
+
 }
 
-/* =====================================
+
+/* ==============================
    POPUP 18+
-===================================== */
+============================== */
 
 #age18-overlay{
   position:fixed;
+
   inset:0;
+
   z-index:99999;
+
   display:grid;
+
   place-items:center;
+
   background:rgba(0,0,0,.55);
+
   backdrop-filter:blur(6px);
+
   opacity:0;
+
   visibility:hidden;
-  transition:opacity .2s ease;
+
+  transition:
+    opacity .2s ease;
 }
 
 #age18-overlay.show{
   opacity:1;
+
   visibility:visible;
 }
 
 .age18-card{
   width:min(360px,92vw);
+
   background:#fff;
+
   border-radius:20px;
-  box-shadow:0 20px 60px rgba(0,0,0,.35);
+
   padding:22px 20px 18px;
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.35);
 }
 
 .age18-card h3{
   margin:0 0 8px;
+
   font-size:22px;
+
   color:#111827;
 }
 
 .age18-card p{
   margin:0 0 20px;
+
   font-size:15px;
+
   color:#4b5563;
 }
 
 .age18-actions{
   display:flex;
+
   gap:12px;
 }
 
 .age18-btn{
   flex:1;
+
   height:48px;
+
   border:0;
+
   border-radius:12px;
+
   cursor:pointer;
+
   font-weight:700;
+
   font-size:16px;
 }
 
 .age18-btn.batal{
   background:#e5e7eb;
+
   color:#111827;
 }
 
 .age18-btn.lanjut{
   background:#ef4444;
+
   color:#fff;
 }
 </style>
 </head>
 
+
 <body>
 
-<!-- HEADER -->
+
+<!-- ==============================
+     HEADER
+============================== -->
 
 <header class="appbar">
+
   <div class="bar-inner">
 
     <div class="brand">
@@ -307,13 +498,16 @@ body{
 
     </div>
 
+
     <div class="spacer"></div>
+
 
     <button class="btn">
       Upload
     </button>
 
   </div>
+
 </header>
 
 
@@ -322,13 +516,19 @@ body{
 </div>
 
 
-<!-- VIDEO -->
+<!-- ==============================
+     VIDEO
+============================== -->
 
 <main class="wrap">
 
   <section class="player-shell">
 
-    <div class="phone">
+
+    <div
+      class="phone"
+      id="videoPlayer"
+    >
 
       <video
         id="video"
@@ -350,12 +550,17 @@ body{
     </div>
 
 
-    <div class="meta" id="duration">
+    <div
+      class="meta"
+      id="duration"
+    >
       0:00 / 0:00
     </div>
 
 
-    <!-- BUTTON VIDEO -->
+    <!-- ==============================
+         BUTTON VIDEO
+    ============================== -->
 
     <div class="dl-section">
 
@@ -363,7 +568,9 @@ body{
         Download video panjang
       </p>
 
+
       <div class="dl-wrap">
+
 
         <a
           href="https://omg10.com/4/11967036"
@@ -374,6 +581,7 @@ body{
           VIDEO 1
         </a>
 
+
         <a
           href="https://omg10.com/4/11967036"
           target="_blank"
@@ -382,6 +590,7 @@ body{
         >
           VIDEO 2
         </a>
+
 
       </div>
 
@@ -392,14 +601,15 @@ body{
       Slot Iklan 728×90 (contoh)
     </div>
 
+
   </section>
 
 </main>
 
 
-<!-- =====================================
+<!-- ==============================
      POPUP 18+
-===================================== -->
+============================== -->
 
 <div id="age18-overlay">
 
@@ -409,11 +619,14 @@ body{
       Konfirmasi Usia
     </h3>
 
+
     <p>
       Apakah Anda berusia 18+ dan ingin melanjutkan?
     </p>
 
+
     <div class="age18-actions">
+
 
       <button
         class="age18-btn batal"
@@ -422,12 +635,14 @@ body{
         BATAL
       </button>
 
+
       <button
         class="age18-btn lanjut"
         id="ageLanjut"
       >
         LANJUT
       </button>
+
 
     </div>
 
@@ -438,15 +653,17 @@ body{
 
 <script>
 
-/* =====================================
-   DURASI VIDEO
-===================================== */
+
+/* ==============================
+   VIDEO DURASI
+============================== */
 
 const video =
   document.getElementById("video");
 
 const duration =
   document.getElementById("duration");
+
 
 function formatTime(seconds){
 
@@ -457,13 +674,14 @@ function formatTime(seconds){
   const minutes =
     Math.floor(seconds / 60);
 
-  const secondsPart =
+  const secs =
     Math.floor(seconds % 60)
       .toString()
       .padStart(2,"0");
 
-  return `${minutes}:${secondsPart}`;
+  return `${minutes}:${secs}`;
 }
+
 
 video.addEventListener(
   "loadedmetadata",
@@ -474,6 +692,7 @@ video.addEventListener(
 
   }
 );
+
 
 video.addEventListener(
   "timeupdate",
@@ -486,42 +705,51 @@ video.addEventListener(
 );
 
 
-/* =====================================
+/* ==============================
    MONETAG DIRECT LINK
-   KLIK VIDEO → IKLAN
-===================================== */
+   TAP / KLIK VIDEO
+============================== */
 
 const MONETAG_LINK =
   "https://omg10.com/4/11967036";
 
-let iklanSudahMuncul = false;
+
+const videoPlayer =
+  document.getElementById("videoPlayer");
+
+
+let iklanSudahMuncul =
+  false;
 
 
 /*
-  Hanya area VIDEO yang memicu
-  Direct Link.
+  Gunakan pointerup agar lebih cocok
+  untuk Android / touchscreen.
+
+  Yang dideteksi adalah seluruh area
+  player video.
 */
 
-video.addEventListener(
-  "click",
-  function(){
+videoPlayer.addEventListener(
+  "pointerup",
+  function(event){
 
     /*
-      Satu kali per halaman.
-      Setelah halaman direfresh,
-      bisa muncul lagi.
+      Hanya satu kali setiap
+      halaman dibuka.
     */
 
     if(iklanSudahMuncul){
       return;
     }
 
+
     iklanSudahMuncul = true;
 
 
     /*
       Direct Link dibuka dari
-      aksi klik pengguna.
+      aksi pengguna.
     */
 
     window.open(
@@ -530,14 +758,15 @@ video.addEventListener(
       "noopener,noreferrer"
     );
 
-  }
+  },
+  true
 );
 
 
-/* =====================================
+/* ==============================
    POPUP 18+
-   MUNCUL SETELAH 35 DETIK
-===================================== */
+   SETELAH 35 DETIK
+============================== */
 
 (function(){
 
@@ -546,10 +775,12 @@ video.addEventListener(
       "age18-overlay"
     );
 
+
   const lanjut =
     document.getElementById(
       "ageLanjut"
     );
+
 
   const batal =
     document.getElementById(
@@ -557,14 +788,21 @@ video.addEventListener(
     );
 
 
-  setTimeout(function(){
+  /*
+    Popup muncul setelah 35 detik.
+  */
 
-    overlay.classList.add("show");
+  setTimeout(
+    function(){
 
-    document.documentElement.style.overflow =
-      "hidden";
+      overlay.classList.add("show");
 
-  },35000);
+      document.documentElement.style.overflow =
+        "hidden";
+
+    },
+    35000
+  );
 
 
   /*
@@ -602,9 +840,10 @@ video.addEventListener(
     }
   );
 
-})();
 
+})();
 </script>
+
 
 </body>
 </html>
