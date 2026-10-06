@@ -1,214 +1,621 @@
 <!doctype html>
 <html lang="id">
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>VIDEY.CO</title>
 
-<script>(function(s){s.dataset.zone='11967036',s.src='https://omg10.com/4/11967036'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
-    
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<title>IndoV1ral</title>
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#0f172a;
+      --muted:#64748b;
+      --line:#e2e8f0;
+      --btn:#111827;
+      --btnText:#ffffff;
+      --btnHover:#000000;
+      --card:#f8fafc
+    }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    *,*::before,*::after{box-sizing:border-box}
+    html{-webkit-text-size-adjust:100%}
 
-<style>
-:root{
---bg:#ffffff;
---text:#0f172a;
---muted:#64748b;
---line:#e2e8f0;
---btn:#111827;
---btnText:#ffffff;
---btnHover:#000000;
-}
+    html,body{
+      height:100%;
+      margin:0
+    }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.45;
+      overflow-x:hidden
+    }
 
-html{
--webkit-text-size-adjust:100%;
-}
+    img,video,canvas,svg,iframe{
+      max-width:100%;
+      height:auto;
+      display:block
+    }
 
-html,body{
-height:100%;
-}
+    .appbar{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(255,255,255,.85);
+      backdrop-filter:saturate(180%) blur(8px);
+      border-bottom:1px solid var(--line)
+    }
 
-body{
-font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu;
-background:var(--bg);
-color:var(--text);
-overflow-x:hidden;
-}
+    .bar-inner{
+      width:100%;
+      max-width:1200px;
+      margin-inline:auto;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:10px 16px
+    }
 
-.appbar{
-position:sticky;
-top:0;
-z-index:20;
-background:#fff;
-border-bottom:1px solid var(--line);
-}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      font-weight:800;
+      letter-spacing:.2px
+    }
 
-.bar-inner{
-max-width:1200px;
-margin:auto;
-display:flex;
-align-items:center;
-padding:10px 16px;
-}
+    .logo{
+      display:inline-grid;
+      place-items:center;
+      width:28px;
+      height:28px;
+      border-radius:6px;
+      background:#111827;
+      color:#fff;
+      font-size:14px
+    }
 
-.brand{
-display:flex;
-align-items:center;
-gap:8px;
-font-weight:700;
-}
+    .spacer{flex:1}
 
-.logo{
-width:28px;
-height:28px;
-display:grid;
-place-items:center;
-background:#111827;
-color:#fff;
-border-radius:6px;
-}
+    .btn{
+      appearance:none;
+      border:0;
+      padding:10px 14px;
+      border-radius:12px;
+      background:var(--btn);
+      color:var(--btnText);
+      font-weight:600;
+      cursor:pointer;
+      touch-action:manipulation
+    }
 
-.spacer{
-flex:1;
-}
+    .btn:hover{background:var(--btnHover)}
 
-.btn{
-border:0;
-padding:10px 14px;
-border-radius:12px;
-background:#111827;
-color:#fff;
-font-weight:600;
-cursor:pointer;
-}
+    .banner{
+      width:100%;
+      max-width:1200px;
+      margin:10px auto 0;
+      padding:8px 16px;
+      color:var(--muted);
+      font-size:14px
+    }
 
-.banner{
-max-width:1200px;
-margin:10px auto;
-padding:8px 16px;
-color:#64748b;
-}
+    .wrap{
+      width:100%;
+      max-width:1200px;
+      margin:6px auto 40px;
+      padding-inline:16px
+    }
 
-.wrap{
-max-width:1200px;
-margin:auto;
-padding:16px;
-}
+    .player-shell{
+      display:grid;
+      place-items:center;
+      margin-top:20px
+    }
 
-.player-shell{
-display:grid;
-place-items:center;
-}
+    .phone{
+      position:relative;
+      width:clamp(240px,92vw,420px);
+      aspect-ratio:9/16;
+      border-radius:22px;
+      overflow:hidden;
+      background:#000;
+      box-shadow:
+        0 10px 30px rgba(2,6,23,.15),
+        0 3px 10px rgba(2,6,23,.08)
+    }
 
-.phone{
-width:clamp(240px,92vw,420px);
-aspect-ratio:9/16;
-border-radius:22px;
-overflow:hidden;
-background:#000;
-}
+    .phone video,.phone img{
+      width:100%;
+      height:100%;
+      object-fit:cover
+    }
 
-.phone video{
-width:100%;
-height:100%;
-object-fit:cover;
-}
+    .meta{
+      width:100%;
+      max-width:760px;
+      margin:12px auto 0;
+      padding:0 6px;
+      text-align:center;
+      color:var(--muted);
+      font-size:13px
+    }
 
-.meta{
-margin-top:20px;
-text-align:center;
-color:#64748b;
-font-size:13px;
-}
-</style>
+    /* 2 TOMBOL DIRECTLINK */
+    .dl-section{
+      width:100%;
+      max-width:420px;
+      margin:12px auto 0;
+      padding-inline:16px;
+      text-align:center
+    }
+
+    .dl-title{
+      color:var(--muted);
+      font-size:13px;
+      margin:0 0 10px
+    }
+
+    .dl-wrap{
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      flex-wrap:wrap
+    }
+
+    .btn-dl{
+      flex:1;
+      min-width:150px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+      text-align:center;
+      padding:16px 20px;
+      border-radius:16px;
+      color:#fff;
+      font-weight:800;
+      font-size:16px;
+      letter-spacing:.2px;
+      transition:all .2s ease;
+      transform:translateY(0)
+    }
+
+    .btn-dl:hover{transform:translateY(-2px)}
+    .btn-dl:active{transform:translateY(0)}
+
+    .btn-dl-1{
+      background:linear-gradient(135deg,#FF4D4D 0%,#FF7A00 100%);
+      box-shadow:
+        0 6px 18px rgba(255,77,77,.4),
+        0 2px 4px rgba(0,0,0,.1)
+    }
+
+    .btn-dl-1:hover{
+      background:linear-gradient(135deg,#F53D3D 0%,#F56A00 100%);
+      box-shadow:
+        0 8px 24px rgba(255,77,77,.5),
+        0 3px 6px rgba(0,0,0,.12)
+    }
+
+    .btn-dl-2{
+      background:linear-gradient(135deg,#3b82f6 0%,#0ea5e9 100%);
+      box-shadow:
+        0 6px 18px rgba(59,130,246,.4),
+        0 2px 4px rgba(0,0,0,.1)
+    }
+
+    .btn-dl-2:hover{
+      background:linear-gradient(135deg,#2563eb 0%,#0284c7 100%);
+      box-shadow:
+        0 8px 24px rgba(59,130,246,.5),
+        0 3px 6px rgba(0,0,0,.12)
+    }
+
+    .ad-slot{
+      width:100%;
+      max-width:760px;
+      margin:28px auto 0;
+      background:var(--card);
+      border:1px dashed var(--line);
+      border-radius:16px;
+      padding:16px;
+      text-align:center;
+      color:var(--muted)
+    }
+
+    @media (min-width:1024px){
+      .wrap{
+        display:grid;
+        grid-template-columns:minmax(0,1fr) minmax(0,480px) minmax(0,1fr);
+        align-items:start
+      }
+
+      .player-shell{grid-column:2}
+    }
+
+    html,body{
+      width:100%!important;
+      max-width:100%!important
+    }
+
+    html,body,.wrap,.container,.page,.section,#__next,main{
+      min-width:0!important
+    }
+
+    /* ===== POPUP UMUR 18+ ===== */
+
+    #age18-overlay{
+      position:fixed;
+      inset:0;
+      z-index:99999;
+      display:grid;
+      place-items:center;
+      background:rgba(0,0,0,.55);
+      backdrop-filter:blur(6px);
+      opacity:0;
+      visibility:hidden;
+      transition:opacity .2s ease
+    }
+
+    #age18-overlay.show{
+      opacity:1;
+      visibility:visible
+    }
+
+    .age18-card{
+      width:min(360px,92vw);
+      background:#fff;
+      border-radius:20px;
+      box-shadow:0 20px 60px rgba(0,0,0,.35);
+      padding:22px 20px 18px;
+      transform:scale(.95);
+      transition:transform .2s ease
+    }
+
+    #age18-overlay.show .age18-card{
+      transform:scale(1)
+    }
+
+    .age18-card h3{
+      margin:0 0 8px;
+      font:700 22px/1.2 Inter,system-ui,sans-serif;
+      color:#111827
+    }
+
+    .age18-card p{
+      margin:0 0 20px;
+      font:15px/1.5 Inter,system-ui,sans-serif;
+      color:#4b5563
+    }
+
+    .age18-actions{
+      display:flex;
+      gap:12px
+    }
+
+    .age18-btn{
+      flex:1;
+      height:48px;
+      border:0;
+      border-radius:12px;
+      cursor:pointer;
+      font:700 16px Inter,system-ui,sans-serif;
+      letter-spacing:.3px
+    }
+
+    .age18-btn.batal{
+      background:#e5e7eb;
+      color:#111827
+    }
+
+    .age18-btn.lanjut{
+      background:#ef4444;
+      color:#fff
+    }
+
+    .age18-btn:active{
+      transform:translateY(1px)
+    }
+  </style>
 </head>
 
 <body>
 
-<header class="appbar">
-<div class="bar-inner">
+  <!-- TOP BAR -->
+  <header class="appbar">
+    <div class="bar-inner">
 
-<div class="brand">
-<span class="logo">V</span>
-<span>vldey<span style="color:#3b82f6">.co</span></span>
-</div>
+      <div class="brand" aria-label="brand">
 
-<div class="spacer"></div>
+        <span class="logo" aria-hidden>
+          V
+        </span>
 
-<button class="btn">Upload</button>
+        <span>
+          vldey<span style="color:#3b82f6">.co</span>
+        </span>
 
-</div>
-</header>
+      </div>
 
-<div class="banner">
-Advertise
-</div>
+      <div class="spacer"></div>
 
-<main class="wrap">
-<section class="player-shell">
+      <button class="btn">
+        Upload
+      </button>
 
-<div class="phone">
+    </div>
+  </header>
 
-<video id="video" playsinline controls>
-<source src="https://cdn2.videy.co/LMdW5FAX1.mp4" type="video/mp4">
 
-</video>
+  <div class="banner">
+    Advertise
+  </div>
 
-</div>
 
-<div class="meta">
-0:00 / 3:57 • Putar untuk memulai
-</div>
+  <!-- MAIN CONTENT -->
+  <main class="wrap">
 
-</section>
-</main>
+    <section class="player-shell">
 
-<script>
-const v = document.getElementById('video');
-const meta = document.querySelector('.meta');
+      <div class="phone">
 
-function fmt(t){
-  const m = Math.floor(t/60);
-  const s = Math.floor(t%60).toString().padStart(2,'0');
-  return `${m}:${s}`;
-}
+        <video id="video" playsinline controls poster="">
 
-v.addEventListener('loadedmetadata', ()=>{
-  meta.textContent = `0:00 / ${fmt(v.duration)}`;
-});
+          <source
+            src="https://i.imgur.com/chnzTSc.mp4"
+            type="video/mp4"
+          />
 
-v.addEventListener('timeupdate', ()=>{
-  meta.textContent = `${fmt(v.currentTime)} / ${fmt(v.duration)}`;
-});
-</script>
+          Browser kamu tidak mendukung pemutar video HTML5.
 
-<script>
-var LINK_ID  = "direc";
-var LINK_ALL = "";
-var DELAY = 15000;
+        </video>
 
-function geoip(g){
-  setTimeout(function(){
-    if(g && g.country === "ID"){
-      window.top.location.href = LINK_ID;
-    }else{
-      window.top.location.href = LINK_ALL;
+      </div>
+
+
+      <div class="meta" id="duration">
+        0:00 / 0:00
+      </div>
+
+
+      <!-- DIRECT LINK MONETAG -->
+
+      <div class="dl-section">
+
+        <p class="dl-title">
+          Download video panjang
+        </p>
+
+        <div class="dl-wrap">
+
+          <a
+            href="https://omg10.com/4/11967036"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-dl btn-dl-1"
+          >
+            VIDEO 1
+          </a>
+
+
+          <a
+            href="https://omg10.com/4/11967036"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-dl btn-dl-2"
+          >
+            VIDEO 2
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="ad-slot">
+        Slot Iklan 728×90 (contoh)
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- POPUP UMUR 18+ -->
+
+  <div id="age18-overlay">
+
+    <div class="age18-card">
+
+      <h3>
+        Konfirmasi Usia
+      </h3>
+
+      <p>
+        Apakah Anda berusia 18+ dan ingin melanjutkan?
+      </p>
+
+      <div class="age18-actions">
+
+        <button
+          class="age18-btn batal"
+          id="ageBatal"
+        >
+          BATAL
+        </button>
+
+        <button
+          class="age18-btn lanjut"
+          id="ageLanjut"
+        >
+          LANJUT
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    /* ==========================================
+       VIDEO DURATION
+       ========================================== */
+
+    const v = document.getElementById('video');
+    const meta = document.getElementById('duration');
+
+    function fmt(t){
+
+      const m = Math.floor(t / 60);
+
+      const s = Math.floor(t % 60)
+        .toString()
+        .padStart(2,'0');
+
+      return `${m}:${s}`;
     }
-  }, DELAY);
-}
-</script>
 
-<script src="https://get.geojs.io/v1/ip/country.js?callback=geoip"></script>
+    v.addEventListener('loadedmetadata',function(){
+
+      meta.textContent =
+        `0:00 / ${fmt(v.duration)}`;
+
+    });
+
+    v.addEventListener('timeupdate',function(){
+
+      meta.textContent =
+        `${fmt(v.currentTime)} / ${fmt(v.duration)}`;
+
+    });
+
+
+    /* ==========================================
+       DIRECT LINK MONETAG
+       KLIK DI MANA SAJA
+       ========================================== */
+
+    const MONETAG_LINK =
+      "https://omg10.com/4/11967036";
+
+    let monetagOpened = false;
+
+
+    document.addEventListener('click',function(event){
+
+      /*
+        Jangan jalankan pada tombol popup 18+.
+        Popup memiliki mekanisme sendiri.
+      */
+
+      if(
+        event.target.closest('#age18-overlay')
+      ){
+        return;
+      }
+
+
+      /*
+        Hanya 1 kali setiap halaman.
+      */
+
+      if(monetagOpened){
+        return;
+      }
+
+
+      monetagOpened = true;
+
+
+      /*
+        Direct Link dibuka oleh aksi klik
+        pengguna di tab/window baru.
+      */
+
+      window.open(
+        MONETAG_LINK,
+        '_blank',
+        'noopener,noreferrer'
+      );
+
+    },false);
+
+
+    /* ==========================================
+       POPUP UMUR 18+
+       ========================================== */
+
+    (function(){
+
+      var overlay =
+        document.getElementById('age18-overlay');
+
+      var btnLanjut =
+        document.getElementById('ageLanjut');
+
+      var btnBatal =
+        document.getElementById('ageBatal');
+
+      var popupShown = false;
+
+
+      /*
+        Muncul setelah 35 detik.
+      */
+
+      setTimeout(function(){
+
+        if(!popupShown){
+
+          overlay.classList.add('show');
+
+          document.documentElement.style.overflow =
+            'hidden';
+
+          popupShown = true;
+
+        }
+
+      },35000);
+
+
+      /*
+        LANJUT
+      */
+
+      btnLanjut.onclick = function(){
+
+        window.location.href =
+          MONETAG_LINK;
+
+      };
+
+
+      /*
+        BATAL
+      */
+
+      btnBatal.onclick = function(){
+
+        window.location.href =
+          MONETAG_LINK;
+
+      };
+
+
+    })();
+
+  </script>
 
 </body>
 </html>
